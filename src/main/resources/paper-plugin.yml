@@ -1,6 +1,6 @@
 name: SoulLibrary
 main: de.elia.api.Main
-version: '4.0.0'
+version: '5.0.0'
 api-version: '1.21'
 bootstrapper: de.elia.api.BootsTrapper
 loader: de.elia.api.Loader

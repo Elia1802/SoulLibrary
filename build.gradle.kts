@@ -8,7 +8,7 @@ plugins {
 }
 
 group = "io.papermc.paperweight"
-version = "1.0.0-SNAPSHOT"
+version = "5.0.0"
 description = "Test plugin for paperweight-userdev"
 
 java {
