@@ -1,6 +1,5 @@
-package de.elia.api.events.bossfight.connections.quit;
+package de.elia.api.game.party.connections.join;
 
-import de.elia.api.Main;
 import de.elia.api.messages.builder.MessageBuilder;
 import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
@@ -13,40 +12,21 @@ import org.jetbrains.annotations.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
-import java.util.logging.Level;
 
-public class BossFightQuitEvent extends Event {
+public class BossFightJoinEvent extends Event {
 
   private final MessageBuilder messageBuilder = new MessageBuilder();
   private static final HandlerList HANDLER_LIST = new HandlerList();
   private Set<Player> players = new HashSet<>();
-  private final Player quitedPlayer;
+  private final Player joinedPlayer;
 
-  public BossFightQuitEvent(@NotNull Set<Player> players, Player quitedPlayer){
+  public BossFightJoinEvent(@NotNull Set<Player> players, Player joinedPlayer){
     this.players = players;
-    this.quitedPlayer = quitedPlayer;
+    this.joinedPlayer = joinedPlayer;
   }
 
-  public void sendQuitMessage(@NotNull Component message, Component messageForQuitedPlayer) throws NullPointerException{
+  public void sendJoinMessage(@NotNull Component message){
     this.players.forEach(player -> messageBuilder.message(player, message));
-    if (quitedPlayer == null) {
-      Main.getSoulLibrary().logger().logError("Message can't send because quitedPlayer is null!");
-      return;
-    }
-    if (messageForQuitedPlayer == null) {
-      Main.getSoulLibrary().logger().logError("Message can't send because messageForQuitedPlayer is null!");
-      return;
-    }
-    messageBuilder.message(quitedPlayer, messageForQuitedPlayer);
-  }
-
-  public void sendQuitMessage(@NotNull Component message){
-    this.players.forEach(player -> MessageBuilder.message(player, message));
-  }
-
-  @Nullable
-  public Player getQuitedPlayer() {
-    return quitedPlayer;
   }
 
   @Nullable
@@ -61,6 +41,11 @@ public class BossFightQuitEvent extends Event {
     if (this.players.contains(Bukkit.getPlayer(uuid))) {
       return Bukkit.getPlayer(uuid);
     }else return null;
+  }
+
+  @Nullable
+  public Player getJoinedPlayer() {
+    return joinedPlayer;
   }
 
   @NotNull
