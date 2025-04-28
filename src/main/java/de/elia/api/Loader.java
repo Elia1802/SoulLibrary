@@ -20,5 +20,9 @@ public class Loader implements PluginLoader {
         log4jCore.addDependency(new Dependency(new DefaultArtifact("org.apache.logging.log4j:log4j-core:2.22.0"), null));
         log4jCore.addRepository(new RemoteRepository.Builder("log4j-core", "default", "https://repo.papermc.io/repository/maven-public/").build());
         classpathBuilder.addLibrary(log4jCore);
+      MavenLibraryResolver htttpApache5 = new MavenLibraryResolver();
+      htttpApache5.addDependency(new Dependency(new DefaultArtifact("org.apache.httpcomponents.client5:httpclient5:5.4.2"), null));
+      htttpApache5.addRepository(new RemoteRepository.Builder("httpclient5", "default", "https://repo.papermc.io/repository/maven-public/").build());
+      classpathBuilder.addLibrary(htttpApache5);
     }
 }
