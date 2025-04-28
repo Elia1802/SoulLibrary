@@ -12,7 +12,7 @@ version = "5.0.0"
 description = "Test plugin for paperweight-userdev"
 
 java {
-  // Configure the java toolchain. This allows gradle to auto-provision JDK 21 on systems that only have JDK 11 installed for example.
+  // Configure the java toolchain. This allows Gradle to auto-provision JDK 21 on systems that only have JDK 11 installed, for example.
   toolchain.languageVersion = JavaLanguageVersion.of(21)
 }
 
@@ -30,7 +30,9 @@ tasks.assemble {
  */
 
 dependencies {
-  paperweight.paperDevBundle("1.21.4-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("1.21.5-R0.1-SNAPSHOT")
+  implementation("org.apache.httpcomponents.client5:httpclient5:5.4.2")
+  //implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.4.2'
   // paperweight.foliaDevBundle("1.21.1-R0.1-SNAPSHOT")
   // paperweight.devBundle("com.example.paperfork", "1.21.1-R0.1-SNAPSHOT")
 }
@@ -49,7 +51,7 @@ tasks {
   /*
   reobfJar {
     // This is an example of how you might change the output location for reobfJar. It's recommended not to do this
-    // for a variety of reasons, however it's asked frequently enough that an example of how to do it is included here.
+    // for a variety of reasons, however, it's asked frequently enough that an example of how to do it is included here.
     outputJar = layout.buildDirectory.file("libs/PaperweightTestPlugin-${project.version}.jar")
   }
    */
