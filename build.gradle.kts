@@ -7,9 +7,9 @@ plugins {
   //id("xyz.jpenilla.resource-factory-bukkit-convention") version "1.2.0" // Generates plugin.yml based on the Gradle config
 }
 
-group = "io.papermc.paperweight"
-version = "5.0.0"
-description = "Test plugin for paperweight-userdev"
+group = "de.elia"
+version = "5.1.0"
+description = "Library for all SoulSMP plugins."
 
 java {
   // Configure the java toolchain. This allows Gradle to auto-provision JDK 21 on systems that only have JDK 11 installed, for example.
