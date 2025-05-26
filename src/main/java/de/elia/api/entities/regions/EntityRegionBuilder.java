@@ -1,4 +1,4 @@
-package de.elia.api.entityRegion;
+package de.elia.api.entities.regions;
 
 import org.bukkit.Location;
 import org.bukkit.Particle;
